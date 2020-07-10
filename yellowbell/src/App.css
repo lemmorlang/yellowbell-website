@@ -183,32 +183,16 @@ input.error {
   padding: 10px 10px;
   border-radius: 10px;
 }
-
-Nav{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: #3498db;
-  color: white;
-}
-
-.nav-Links{
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-
 .blog-post-wrap{
   border: 1px solid rgb(182, 144, 144);
   align-items: center;
 }
 
-.nav-items{
-  padding: 5px;
-  width: 70px;
-  height: 40px;
-  text-align: center;
+.logo{
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
 }
+
