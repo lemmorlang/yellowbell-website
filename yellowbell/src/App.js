@@ -3,11 +3,11 @@ import './App.css';
 import Toolbar from './component/Navbar/Toolbar';
 import Backdrop from './component/Backdrop/Backdrop';
 import SideDrawer from './component/SideDrawer/SideDrawer';
-
-//import Enrollmentform from './component/Enrollmentform';
-//import ListOfOnlineE from './component/ListOfOnlineE';
-//import Confirm from './component/Confirm';
-//import HomePage from './component/HomePage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Enrollmentform from './component/Pages/Enrollmentform';
+import ListOfOnlineE from './component/Pages/ListOfOnlineE';
+import Confirm from './component/Pages/Confirm';
+import HomePage from './component/Pages/HomePage';
 
 export class App extends Component {
   state = {
@@ -33,17 +33,26 @@ export class App extends Component {
 
 
     return (
+      <Router>
+        <div className="App" style={{ height: '100%' }}>
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
 
-      <div className="App" style={{ height: '100%' }}>
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backdrop}
+          <main style={{ marginTop: '64px' }}>
+            <div>
+              <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/Enrollmentform" component={Enrollmentform} />
+                <Route path="/ListOfOnlineE" component={ListOfOnlineE} />
+                <Route path="/Confirm" component={Confirm} />
+              </Switch>
+            </div>
+          </main>
 
-        <main style={{ marginTop: '64px' }}>
-          <p>put content here</p>
-        </main>
-      </div>
 
+        </div>
+      </Router>
     )
   }
 }
